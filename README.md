@@ -21,5 +21,3 @@ Cada archivo contiene:
 - Separadores (`\echo`) para visualizar los resultados claramente al ejecutar el script en `psql`
 
 ---
-
-## Estructura del proyecto

@@ -12,9 +12,9 @@
 \echo 'Listar las pistas (tabla Track) con precio mayor o igual a 1€'
 -- Listar las pistas (tabla Track) con precio mayor o igual a 1€
 SELECT 
-    t.trackid AS id,
-    t.name AS track_name,
-    t.unitprice AS price
+  t.trackid AS id,
+  t.name AS track_name,
+  t.unitprice AS price
 FROM track AS t
 WHERE t.unitprice >= 1
 ORDER BY price DESC, track_name;
@@ -24,9 +24,9 @@ ORDER BY price DESC, track_name;
 \echo 'Listar las pistas de más de 4 minutos de duración'
 -- Listar las pistas de más de 4 minutos de duración
 SELECT 
-    t.trackid AS id,
-    t.name AS track_name,
-    ROUND(t.milliseconds / 60000.0, 2) AS duration_min
+  t.trackid AS id,
+  t.name AS track_name,
+  ROUND(t.milliseconds / 60000.0, 2) AS duration_min
 FROM track AS t
 WHERE t.milliseconds > 4 * 60 * 1000
 ORDER BY duration_min DESC;
@@ -36,8 +36,8 @@ ORDER BY duration_min DESC;
 \echo 'Listar las pistas que tengan entre 2 y 3 minutos de duración'
 -- Listar las pistas que tengan entre 2 y 3 minutos de duración
 SELECT
-	t.trackid AS id,
-    t.name AS track_name,
+  t.trackid AS id,
+  t.name AS track_name,
 	ROUND(t.milliseconds / 60000.0, 2) AS duration_min
 FROM track AS t
 WHERE t.milliseconds BETWEEN 2 * 60 * 1000 AND 3 * 60 * 1000
@@ -49,9 +49,9 @@ ORDER BY duration_min DESC;
 \echo 'Listar las pistas que uno de sus compositores (columna Composer) sea Mercury'
 -- Listar las pistas que uno de sus compositores (columna Composer) sea Mercury
 SELECT
-	t.trackid AS id,
-    t.name AS track_name,
-	t.composer
+  t.trackid AS id,
+  t.name AS track_name,
+  t.composer
 FROM track AS t
 WHERE t.composer ILIKE '%Mercury%'
 ORDER BY t.name;
@@ -71,10 +71,10 @@ FROM track AS t;
 \echo 'Listar los clientes (tabla Customer) de USA, Canada y Brazil'
 -- Listar los clientes (tabla Customer) de USA, Canada y Brazil
 SELECT
-	c.customerid AS customer_id,
-	c.firstname AS first_name,
-	c.lastname AS last_name,
-	c.country
+  c.customerid AS customer_id,
+  c.firstname AS first_name,
+  c.lastname AS last_name,
+  c.country
 FROM customer AS c
 WHERE c.country IN ('USA', 'Canada', 'Brazil')
 ORDER BY c.country, customer_id;
@@ -85,9 +85,9 @@ ORDER BY c.country, customer_id;
 \echo 'Listar todas las pistas del artista 'Queen' (Artist.Name = 'Queen')'
 -- Listar todas las pistas del artista 'Queen' (Artist.Name = 'Queen')
 SELECT
-	t.trackid AS id,
-    t.name AS track_name,
-	a.name AS artist_name
+  t.trackid AS id,
+  t.name AS track_name,
+  a.name AS artist_name
 FROM track AS t
 JOIN album AS al
 	ON t.albumid = al.albumid
@@ -102,10 +102,10 @@ ORDER BY t.name DESC;
 \echo 'Listar las pistas del artista 'Queen' en las que haya participado como compositor David Bowie'
 -- Listar las pistas del artista 'Queen' en las que haya participado como compositor David Bowie
 SELECT
-	t.trackid AS id,
-    t.name AS track_name,
-	a.name AS artist_name,
-	t.composer AS composers
+  t.trackid AS id,
+  t.name AS track_name,
+  a.name AS artist_name,
+  t.composer AS composers
 FROM track AS t
 JOIN album AS al
 	ON t.albumid = al.albumid
@@ -122,7 +122,7 @@ ORDER BY t.name DESC;
 -- Listar las pistas de la playlist 'Heavy Metal Classic'
 SELECT
 	t.trackid AS id,
-    t.name AS track_name,
+  t.name AS track_name,
 	p.name AS playlist_name
 FROM playlist AS p
 JOIN playlisttrack AS pt
